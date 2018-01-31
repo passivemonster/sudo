@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         sudoTitle = findViewById(R.id.sudoTitle) ;
         sudoInfo = findViewById(R.id.sudoInfo) ;
+        BackgroundWorker backgroundWorker= new BackgroundWorker(getApplicationContext());
+        backgroundWorker.execute();
+
+
     }
 
 
@@ -55,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            String type = params[0];
-            String login_url="http://mark21ironman.co.nf/login.php";
+          //  String type = params[0];
+            String login_url="http://suryamurugan3542.0fees.us/app.php";
 
-            if (type.equals("login")){
+         //  if (type.equals("login")){
 
                 try {
                     String user_name = params[1];
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
 
-                    OutputStream outputStream= httpURLConnection.getOutputStream();
+                 /*   OutputStream outputStream= httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
                     String port_data = URLEncoder.
                             encode("user_name","UTF-8")+"="+URLEncoder.
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     bufferedWriter.flush();
                     bufferedWriter.close();
                     outputStream.close();
-
+*/
 
                     InputStream inputStream= httpURLConnection.getInputStream();
                     BufferedReader bufferedReader= new BufferedReader
@@ -107,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+           // }
 
             return null;
         }
@@ -132,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context,result.toString(), Toast.LENGTH_SHORT).show();
             alertDialog.setMessage(result);
             alertDialog.show();
+           // sudoTitle.setText(result);
 
 
 
