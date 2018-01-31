@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         sudoInfo = findViewById(R.id.sudoInfo) ;
     }
 
+
+
+
     private class Background extends AsyncTask<Void, Void, String> {
 
         Context context ;
